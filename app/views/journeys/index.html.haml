@@ -1,0 +1,6 @@
+%h1 Journeys
+%p= link_to "Add a New Journey", new_journey_path, class: "btn btn-primary"
+%ul#journeys
+  - @journeys.each do |journey|
+    %li.journey{"data-id" => "#{journey.id}"}
+      = link_to journey.name, journey_path(journey)

@@ -1,0 +1,23 @@
+%label
+  Name:
+  = @journey.name
+%br/
+%label
+  Leaving Time:
+  = @journey.leaving_time
+%br/
+
+%h5
+  Routes
+%table
+  %tr
+    %th Departure Address
+    %th Arrival Address
+  %tr
+  - @journey.routes.each do |route|
+    %tr
+      %td= route.init_address
+      %td= route.end_address
+    %tr
+
+= link_to "Back", journeys_path

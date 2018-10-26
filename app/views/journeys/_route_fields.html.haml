@@ -1,0 +1,6 @@
+.nested-fields
+  = f.simple_fields_for :init_location do |init|
+    = init.input :address
+  = f.simple_fields_for :end_location do |finish|
+    = finish.input :address
+  = link_to_remove_association "Remove route", f

@@ -1,0 +1,19 @@
+%h1 New Journey Form
+%ul#errors
+  - if @journey.errors.any?
+    - @errors.full_messages.each do |message|
+      %li.error
+        =message 
+
+= simple_form_for @journey do |f|
+  = f.input :name, placeholder: "Mateo Andres"
+  = f.input :leaving_time, placeholder: "12:00"
+  %h3 Tasks
+  #routes
+    = f.simple_fields_for :routes do |route|
+      = render 'route_fields', f: route
+    .links
+      = link_to_add_association 'Add Route', f, :routes
+  = f.submit
+
+= link_to "Back", journeys_path
