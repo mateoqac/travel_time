@@ -10,8 +10,10 @@ class JourneysController < ApplicationController
   end
 
   def create
+    
     @journey = Journey.create(journey_params)
-    if(@journey.save)
+    
+    if@journey.save
       redirect_to journeys_path
     else
       @errors = @journey.errors
@@ -27,6 +29,8 @@ class JourneysController < ApplicationController
 
   def journey_params
     params.require(:journey).permit(:leaving_date, :leaving_time, :name, 
-      :routes_attributes => [:id, :time_on_location, :_destroy, :init_location ,:end_location ])
+      routes_attributes: [:id, :time_on_location, :_destroy, 
+        init_location: [:id, :address, :_destroy],
+        end_location: [:id, :address, :_destroy]])
   end
 end

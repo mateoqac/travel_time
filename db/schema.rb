@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(version: 2018_10_24_095908) do
   end
 
   create_table "routes", force: :cascade do |t|
-    t.integer "journey_id"
-    t.integer "init_location_id"
-    t.integer "end_location_id"
     t.datetime "time_on_location"
     t.datetime "arrival_time"
+    t.integer "journey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "init_location_id"
+    t.integer "end_location_id"
     t.index ["end_location_id"], name: "index_routes_on_end_location_id"
     t.index ["init_location_id"], name: "index_routes_on_init_location_id"
     t.index ["journey_id"], name: "index_routes_on_journey_id"
