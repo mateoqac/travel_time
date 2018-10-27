@@ -1,13 +1,5 @@
 %h1 New Journey Form
-- if @journey.errors.any?
-  #error_explanation
-    %h2
-      = pluralize(@journey.errors.count, "error")
-      prohibited
-      this journey from being saved:
-    %ul
-      - @journey.errors.full_messages.each do |msg|
-        %li= msg
+= render 'shared/errors', object: @journey
 
 = simple_form_for setup_journey(@journey) do |f|
   = f.input :name, placeholder: "Mateo Andres"
