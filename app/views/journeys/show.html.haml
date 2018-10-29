@@ -9,15 +9,17 @@
 
 %h5
   Routes
-%table
-  %tr
-    %th Departure Address
-    %th Arrival Address
-  %tr
-  - @journey.routes.each do |route|
+%table.table.table-dark
+  %thead
     %tr
-      %td= route.init_address
-      %td= route.end_address
+      %th{:scope => "col"} Departure
+      %th{:scope => "col"} Arrival
+      %th{:scope => "col"} Arrival time Aprox.
+  %tbody
     %tr
+    - @journey.routes.each do |route|
+      %td= route.init_location.address
+      %td= route.end_location.address
+      %td= route.arrival_time
 
 = link_to "Back", journeys_path

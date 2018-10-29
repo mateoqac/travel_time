@@ -6,4 +6,11 @@ class Route < ApplicationRecord
 
   accepts_nested_attributes_for :init_location, allow_destroy: true, reject_if:  ->(attrs) { attrs['address'].blank?}
   accepts_nested_attributes_for :end_location, allow_destroy: true, reject_if:  ->(attrs) { attrs['address'].blank?}  
+  after_create :calculate_arrival_time
+
+
+  private
+  def calculate_arrival_time
+    puts "Calling after create"
+  end
 end
