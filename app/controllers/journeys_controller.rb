@@ -1,5 +1,5 @@
 class JourneysController < ApplicationController
-  
+  require 'exceptions'
   def index
     @journeys = Journey.all
     
@@ -15,10 +15,16 @@ class JourneysController < ApplicationController
     
     if@journey.save
       redirect_to journey_path(@journey)
+      flash[:notice] = "Journey created successfully"
     else
       @errors = @journey.errors
       render 'new'
     end
+
+    rescue Exceptions::ThirdPartyAPIError => e
+      flash[:alert] = e.message
+      @journey = Journey.new(journey_params)
+      render 'new'
   end
 
   def show

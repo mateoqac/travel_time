@@ -1,5 +1,10 @@
-- [:notice, :error, :alert].each do |level|
-  - unless flash[level].blank?
-    %div{class: "alert #{flash_class(level)}"}
+- if notice
+  %p.alert.alert-success
+    = notice
+    %span.pull-right
       %a.close{data: { dismiss: "alert" }, href: "#"} ×
-      = content_tag :p, flash[level]
+- if alert
+  %p.alert.alert-danger
+    = alert
+    %span.pull-right
+      %a.close{data: { dismiss: "alert" }, href: "#"} ×

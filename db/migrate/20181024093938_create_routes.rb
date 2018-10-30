@@ -4,6 +4,7 @@ class CreateRoutes < ActiveRecord::Migration[5.2]
       t.datetime :time_on_location
       t.datetime :arrival_time
       t.references :journey
+      t.integer :duration_in_minutes, :default => 0
       
 
       t.timestamps

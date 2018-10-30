@@ -63,7 +63,7 @@ group :test, :development do
   gem "email_spec"
   gem "jasmine"
   gem "capybara"
-  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+  gem 'ffaker'
   gem "shoulda-matchers"
   gem "factory_girl_rails"
   gem "pry-rails"

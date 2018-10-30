@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_10_24_093938) do
     t.datetime "time_on_location"
     t.datetime "arrival_time"
     t.integer "journey_id"
+    t.integer "duration_in_minutes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "init_location_id"

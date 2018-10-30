@@ -1,13 +1,15 @@
-%label
+%label{ :style => "text-decoration: underline;"}
   Name:
+%p  
   = @journey.name
 %br/
-%label
+%label{ :style => "text-decoration: underline;"}
   Leaving Time:
+%strong
   = @journey.leaving_time
 %br/
 
-%h5
+%h4{ :style => "color: grey;"}
   Routes
 %table.table.table-dark
   %thead
@@ -16,8 +18,8 @@
       %th{:scope => "col"} Arrival
       %th{:scope => "col"} Arrival time Aprox.
   %tbody
+  - @journey.routes.each do |route|
     %tr
-    - @journey.routes.each do |route|
       %td= route.init_location.address
       %td= route.end_location.address
       %td= route.arrival_time

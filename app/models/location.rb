@@ -4,5 +4,7 @@ class Location < ApplicationRecord
   geocoded_by :address      
   after_validation :geocode 
 
-  
+  def to_geo
+    [self.latitude, self.longitude].join(',')
+  end
 end
